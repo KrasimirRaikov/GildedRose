@@ -4,7 +4,7 @@ import java.util.List;
  * @author raikov.krasimir@gmail.com (Krasimir Raikov)
  */
 public class ItemStatus {
-  public void updateItemStatusList(List<Item> items){
+  public void updateItemStatusList(List<Item> items) {
     for (Item item : items) {
 
       item.setQuality(updateQuality(item));
@@ -14,7 +14,7 @@ public class ItemStatus {
 
   }
 
-  public void updateItemStatus(Item item){
+  public void updateItemStatus(Item item) {
     item.setQuality(updateQuality(item));
 
     item.setSellIn(updateSellIn(item));
@@ -23,15 +23,17 @@ public class ItemStatus {
   public int updateSellIn(Item item) {
     if (!"Sulfuras, Hand of Ragnaros".equals(item.getName())) {
       return item.getSellIn() - 1;
+    } else {
+      return specialUpdateSellIn(item);
     }
+  }
 
+  public int specialUpdateSellIn(Item item) {
     if (item.getSellIn() < 0) {
       if (!"Aged Brie".equals(item.getName())) {
         if (!"Backstage passes to a TAFKAL80ETC concert".equals(item.getName())) {
-          if (item.getQuality() > 0) {
-            if (!"Sulfuras, Hand of Ragnaros".equals(item.getName())) {
+          if (item.getQuality() > 0 && (!"Sulfuras, Hand of Ragnaros".equals(item.getName()))) {
               return item.getQuality() - 1;
-            }
           }
         } else {
           return 0;
@@ -75,6 +77,6 @@ public class ItemStatus {
         return item.getQuality() + 1;
       }
     }
-    return 102;
+    return 0;
   }
 }

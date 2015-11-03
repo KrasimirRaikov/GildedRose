@@ -45,4 +45,19 @@ public class GildedRoseTest {
     GildedRose.updateQuality();
     assertThat(GildedRose.items.get(2).getQuality(), is(equalTo(originQuality - 3)));
   }
+
+  @Test
+  public void testPositiveQualityInTimeForAgedBrie() {
+    GildedRose.items.add(new Item("Aged Brie", 0, 23));
+    GildedRose.updateQuality();
+    assertThat(GildedRose.items.get(2).getQuality(), is(equalTo(24)));
+  }
+
+  @Test
+  public void testAllwaysPositiveQuality(){
+    GildedRose.items.add(new Item("+5 Dexterity Vest", 0, 0));
+    GildedRose.updateQuality();
+    GildedRose.updateQuality();
+    assertThat(GildedRose.items.get(2).getQuality(), is(equalTo(0)));
+  }
 }
