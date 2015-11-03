@@ -2,7 +2,7 @@
  * @author raikov.krasimir@gmail.com (Krasimir Raikov)
  */
 public class ItemStatus {
-  public int updateSellIn(Item item){
+  public int updateSellIn(Item item) {
     if (!"Sulfuras, Hand of Ragnaros".equals(item.getName())) {
       return item.getSellIn() - 1;
     }
@@ -16,7 +16,7 @@ public class ItemStatus {
             }
           }
         } else {
-          return  0;
+          return 0;
         }
       } else {
         if (item.getQuality() < 50) {
@@ -27,12 +27,12 @@ public class ItemStatus {
     return 101;
   }
 
-  public int updateQuality(Item item){
+  public int updateQuality(Item item) {
     if ((!"Aged Brie".equals(item.getName())) && !"Backstage passes to a TAFKAL80ETC concert".equals(item.getName())) {
       if (item.getQuality() > 0) {
         if (!"Sulfuras, Hand of Ragnaros".equals(item.getName())) {
-          if (item.getSellIn()<0){
-            return item.getQuality()-2;
+          if (item.getSellIn() < 0) {
+            return item.getQuality() - 2;
           }
           return item.getQuality() - 1;
         }

@@ -25,7 +25,7 @@ public class GildedRose {
 
   public static void updateQuality() {
     for (Item item : items) {
-      ItemStatus status=new ItemStatus();
+      ItemStatus status = new ItemStatus();
       item.setQuality(status.updateQuality(item));
 
       item.setSellIn(status.updateSellIn(item));
