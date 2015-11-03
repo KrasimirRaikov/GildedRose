@@ -76,6 +76,7 @@ public class ItemStatus {
         }
         return item.getQuality() + 1;
       }
+      else return 50;
     }
     return 0;
   }

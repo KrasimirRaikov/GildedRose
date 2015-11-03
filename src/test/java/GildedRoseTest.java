@@ -54,10 +54,17 @@ public class GildedRoseTest {
   }
 
   @Test
-  public void testAllwaysPositiveQuality(){
+  public void testAlwaysPositiveQuality(){
     GildedRose.items.add(new Item("+5 Dexterity Vest", 0, 0));
     GildedRose.updateQuality();
     GildedRose.updateQuality();
     assertThat(GildedRose.items.get(2).getQuality(), is(equalTo(0)));
+  }
+
+  @Test
+  public void testQualityAlwaysLessThan51() {
+    GildedRose.items.add(new Item("Aged Brie", 0, 50));
+    GildedRose.updateQuality();
+    assertThat(GildedRose.items.get(2).getQuality(), is(equalTo(50)));
   }
 }
