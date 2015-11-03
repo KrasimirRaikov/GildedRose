@@ -31,4 +31,14 @@ public class GildedRoseTest {
     assertThat(originQuality1 -1, is(equalTo(GildedRose.items.get(0).getQuality())));
     assertThat(originQuality2 - 1, is(equalTo(GildedRose.items.get(1).getQuality())));
   }
+
+  @Test
+  public void qualityDoubleDegradationPassedSellIn() {
+    GildedRose.items=new ArrayList<Item>();
+    GildedRose.items.add(new Item("+5 Dexterity Vest", 0,13));
+    int originQuality= GildedRose.items.get(0).getQuality();
+    GildedRose.updateQuality();
+    GildedRose.updateQuality();
+    assertThat(GildedRose.items.get(0).getQuality(), is(equalTo(originQuality-3)));
+  }
 }

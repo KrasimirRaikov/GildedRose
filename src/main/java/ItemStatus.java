@@ -31,6 +31,9 @@ public class ItemStatus {
     if ((!"Aged Brie".equals(item.getName())) && !"Backstage passes to a TAFKAL80ETC concert".equals(item.getName())) {
       if (item.getQuality() > 0) {
         if (!"Sulfuras, Hand of Ragnaros".equals(item.getName())) {
+          if (item.getSellIn()<0){
+            return item.getQuality()-2;
+          }
           return item.getQuality() - 1;
         }
       }
