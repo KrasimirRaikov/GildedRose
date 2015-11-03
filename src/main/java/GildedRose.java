@@ -8,6 +8,7 @@ public class GildedRose {
 
 
   public static void main(String[] args) {
+    ItemStatus updater=new ItemStatus();
 
     System.out.println("OMGHAI!");
 
@@ -24,12 +25,8 @@ public class GildedRose {
 
 
   public static void updateQuality() {
-    for (Item item : items) {
-      ItemStatus status = new ItemStatus();
-      item.setQuality(status.updateQuality(item));
-
-      item.setSellIn(status.updateSellIn(item));
-    }
+    ItemStatus updater=new ItemStatus();
+    updater.updateItemStatusList(items);
   }
 
 }

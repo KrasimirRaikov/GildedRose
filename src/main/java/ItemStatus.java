@@ -1,7 +1,25 @@
+import java.util.List;
+
 /**
  * @author raikov.krasimir@gmail.com (Krasimir Raikov)
  */
 public class ItemStatus {
+  public void updateItemStatusList(List<Item> items){
+    for (Item item : items) {
+
+      item.setQuality(updateQuality(item));
+
+      item.setSellIn(updateSellIn(item));
+    }
+
+  }
+
+  public void updateItemStatus(Item item){
+    item.setQuality(updateQuality(item));
+
+    item.setSellIn(updateSellIn(item));
+  }
+
   public int updateSellIn(Item item) {
     if (!"Sulfuras, Hand of Ragnaros".equals(item.getName())) {
       return item.getSellIn() - 1;
