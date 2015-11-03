@@ -26,31 +26,7 @@ public class GildedRose {
   public static void updateQuality() {
     for (Item item : items) {
       ItemStatus status=new ItemStatus();
-      if ((!"Aged Brie".equals(item.getName())) && !"Backstage passes to a TAFKAL80ETC concert".equals(item.getName())) {
-        if (item.getQuality() > 0) {
-          if (!"Sulfuras, Hand of Ragnaros".equals(item.getName())) {
-            item.setQuality(item.getQuality() - 1);
-          }
-        }
-      } else {
-        if (item.getQuality() < 50) {
-          item.setQuality(item.getQuality() + 1);
-
-          if ("Backstage passes to a TAFKAL80ETC concert".equals(item.getName())) {
-            if (item.getSellIn() < 11) {
-              if (item.getQuality() < 50) {
-                item.setQuality(item.getQuality() + 1);
-              }
-            }
-
-            if (item.getSellIn() < 6) {
-              if (item.getQuality() < 50) {
-                item.setQuality(item.getQuality() + 1);
-              }
-            }
-          }
-        }
-      }
+      item.setQuality(status.updateQuality(item));
 
       item.setSellIn(status.updateSellIn(item));
     }
