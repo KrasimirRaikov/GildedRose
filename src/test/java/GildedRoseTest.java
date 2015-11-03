@@ -19,4 +19,13 @@ public class GildedRoseTest {
     GildedRose.updateQuality();
     assertThat(origSellIn-2, is(equalTo(GildedRose.items.get(0).getSellIn())));
   }
+
+  @Test
+  public void testQualityDegradation() {
+    GildedRose.items=new ArrayList<Item>();
+    GildedRose.items.add(new Item("+5 Dexterity Vest", 10,13));
+    int originQuality=GildedRose.items.get(0).getQuality();
+    GildedRose.updateQuality();
+    assertThat(originQuality - 1, is(equalTo(GildedRose.items.get(0).getQuality())));
+  }
 }
