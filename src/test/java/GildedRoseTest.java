@@ -38,7 +38,7 @@ public class GildedRoseTest {
   }
 
   @Test
-  public void qualityDoubleDegradationPassedSellIn() {
+  public void testQualityDoubleDegradationPassedSellIn() {
     GildedRose.items.add(new Item("+5 Dexterity Vest", 0, 13));
     int originQuality = GildedRose.items.get(2).getQuality();
     GildedRose.updateQuality();
@@ -74,4 +74,14 @@ public class GildedRoseTest {
     GildedRose.updateQuality();
     assertThat(GildedRose.items.get(2).getQuality(), is(equalTo(80)));
   }
+
+  @Test
+  public void testBackstagePassesQualityIncrease() {
+    GildedRose.items.add(new Item("Backstage passes to a TAFKAL80ETC concert", 6, 20));
+    GildedRose.updateQuality();
+    assertThat(GildedRose.items.get(2).getQuality(),is(equalTo(22)));
+    GildedRose.updateQuality();
+    assertThat(GildedRose.items.get(2).getQuality(),is(equalTo(25)));
+  }
+
 }

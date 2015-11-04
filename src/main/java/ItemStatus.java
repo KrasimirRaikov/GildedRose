@@ -48,7 +48,7 @@ public class ItemStatus {
   }
 
   public int updateQuality(Item item) {
-    if ((!item.getName().contains("Aged Brie")) && !"Backstage passes to a TAFKAL80ETC concert".equals(item.getName())) {
+    if ((!item.getName().contains("Aged Brie")) && !item.getName().contains("Backstage passes")) {
       if (item.getQuality() > 0) {
         if (!item.getName().contains("Sulfuras")) {
           if (item.getSellIn() < 0) {
@@ -62,17 +62,20 @@ public class ItemStatus {
 
 
         if ("Backstage passes to a TAFKAL80ETC concert".equals(item.getName())) {
+          if(item.getSellIn()<0){return 0;}
+          if (item.getSellIn() < 6) {
+            if (item.getQuality() < 50) {
+              return item.getQuality() + 3;
+            }
+          }
           if (item.getSellIn() < 11) {
             if (item.getQuality() < 50) {
-              return item.getQuality() + 1;
+              return item.getQuality() + 2;
             }
           }
 
-          if (item.getSellIn() < 6) {
-            if (item.getQuality() < 50) {
-              return item.getQuality() + 1;
-            }
-          }
+
+
         }
         return item.getQuality() + 1;
       } else return item.getQuality();
