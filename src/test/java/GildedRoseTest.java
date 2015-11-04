@@ -81,7 +81,14 @@ public class GildedRoseTest {
     GildedRose.updateQuality();
     assertThat(GildedRose.items.get(2).getQuality(),is(equalTo(22)));
     GildedRose.updateQuality();
-    assertThat(GildedRose.items.get(2).getQuality(),is(equalTo(25)));
+    assertThat(GildedRose.items.get(2).getQuality(), is(equalTo(25)));
+  }
+
+  @Test
+  public void testQualityOfBackstagePassesZeroAfterConcert(){
+    GildedRose.items.add(new Item("Backstage passes to a blabla concert", 0, 20));
+    GildedRose.updateQuality();
+    assertThat(GildedRose.items.get(2).getQuality(), is(equalTo(0)));
   }
 
 }

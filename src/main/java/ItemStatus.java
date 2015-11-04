@@ -61,8 +61,8 @@ public class ItemStatus {
       if (item.getQuality() < 50) {
 
 
-        if ("Backstage passes to a TAFKAL80ETC concert".equals(item.getName())) {
-          if(item.getSellIn()<0){return 0;}
+        if (item.getName().contains("Backstage passes")) {
+          if(item.getSellIn()<1){return 0;}
           if (item.getSellIn() < 6) {
             if (item.getQuality() < 50) {
               return item.getQuality() + 3;
