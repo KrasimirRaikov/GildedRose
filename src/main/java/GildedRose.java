@@ -24,6 +24,9 @@ public class GildedRose {
   }
 
 
+  /**
+   * method that cals for an update of List of items
+   */
   public static void updateQuality() {
     ItemStatus updater=new ItemStatus();
     updater.updateItemStatusList(items);
