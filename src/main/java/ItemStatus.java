@@ -41,28 +41,27 @@ public class ItemStatus {
         }
       }
     } else {
-      if (item.getQuality() < 50) {
-
-
-        if (item.getName().contains("Backstage passes")) {
-          if(item.getSellIn()<1){return 0;}
-          if (item.getSellIn() < 6) {
-            if (item.getQuality() < 50) {
-              return item.getQuality() + 3;
-            }
-          }
-          if (item.getSellIn() < 11) {
-            if (item.getQuality() < 50) {
-              return item.getQuality() + 2;
-            }
-          }
-
-
-
-        }
-        return item.getQuality() + 1;
-      } else return item.getQuality();
+      return specialUpdateQuality(item);
     }
     return item.getQuality();
+  }
+
+  private int specialUpdateQuality(Item item) {
+    if (item.getQuality() < 50) {
+      if (item.getName().contains("Backstage passes")) {
+        if(item.getSellIn()<1){return 0;}
+        if (item.getSellIn() < 6) {
+          if (item.getQuality() < 50) {
+            return item.getQuality() + 3;
+          }
+        }
+        if (item.getSellIn() < 11) {
+          if (item.getQuality() < 50) {
+            return item.getQuality() + 2;
+          }
+        }
+      }
+      return item.getQuality() + 1;
+    } else return item.getQuality();
   }
 }
