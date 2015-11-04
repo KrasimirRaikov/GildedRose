@@ -21,7 +21,7 @@ public class ItemStatus {
   }
 
   public int updateSellIn(Item item) {
-    if (!"Sulfuras, Hand of Ragnaros".equals(item.getName())) {
+    if (!item.getName().contains("Sulfuras")) {
       return item.getSellIn() - 1;
     } else {
       return specialUpdateSellIn(item);
@@ -48,9 +48,9 @@ public class ItemStatus {
   }
 
   public int updateQuality(Item item) {
-    if ((!"Aged Brie".equals(item.getName())) && !"Backstage passes to a TAFKAL80ETC concert".equals(item.getName())) {
+    if ((!item.getName().contains("Aged Brie")) && !"Backstage passes to a TAFKAL80ETC concert".equals(item.getName())) {
       if (item.getQuality() > 0) {
-        if (!"Sulfuras, Hand of Ragnaros".equals(item.getName())) {
+        if (!item.getName().contains("Sulfuras")) {
           if (item.getSellIn() < 0) {
             return item.getQuality() - 2;
           }
