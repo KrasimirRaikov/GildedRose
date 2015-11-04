@@ -67,4 +67,11 @@ public class GildedRoseTest {
     GildedRose.updateQuality();
     assertThat(GildedRose.items.get(2).getQuality(), is(equalTo(50)));
   }
+
+  @Test
+  public void testLegendarySulfuras() {
+    GildedRose.items.add(new Item("Sulfuras, Hand of Ragnaros", 0, 80));
+    GildedRose.updateQuality();
+    assertThat(GildedRose.items.get(2).getQuality(), is(equalTo(80)));
+  }
 }
