@@ -34,7 +34,7 @@ public class ItemStatus {
     if ((!item.getName().contains("Aged Brie")) && !item.getName().contains("Backstage passes")) {
       if (item.getQuality() > 0) {
         if (!item.getName().contains("Sulfuras")) {
-          if (item.getSellIn() < 0) {
+          if (item.getSellIn() < 0 || item.getName().contains("Conjured")) {
             return item.getQuality() - 2;
           }
           return item.getQuality() - 1;

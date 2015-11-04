@@ -91,4 +91,11 @@ public class GildedRoseTest {
     assertThat(GildedRose.items.get(2).getQuality(), is(equalTo(0)));
   }
 
+  @Test
+  public void testConjuredItemsDoubleQualityDegradation() {
+    GildedRose.items.add(new Item("Conjured brick", 19, 24));
+    GildedRose.updateQuality();
+    assertThat(GildedRose.items.get(2).getQuality(), is(equalTo(22)));
+  }
+
 }
